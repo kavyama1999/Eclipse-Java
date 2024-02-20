@@ -24,10 +24,14 @@ public class Socks {
 		       
 		   }
 		 
+		@Override
 		 public boolean equals(Object obj)
 		   {
-		   	System.out.println("running in socks class");
-		   	System.out.println(" " +this);
+			
+			System.out.println("equals in:"+this);
+			System.out.println("equals in:"+obj);
+//		   	System.out.println("running in socks class");
+//		   	System.out.println(" " +this);
 		   	
 		   	if(obj!=null && obj instanceof Socks)
 		   	{

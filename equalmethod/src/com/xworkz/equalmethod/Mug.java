@@ -26,8 +26,7 @@ public class Mug {
 		{
 			
 			Mug next=(Mug)obj;/// || or operator
-			if(this.madeOf.equals(next.madeOf)  ||
-					this.price==next.price || this.occasion.equals(next.occasion))
+			if(this.madeOf.equals(next.madeOf)  ||this.price==next.price ||this.occasion.equals(next.occasion))
 			{
 				return true;
 			}
