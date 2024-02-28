@@ -32,14 +32,15 @@ public class Runner {
 		//WoodWindow gy=new  Window();
 		
 		//casting....
-		//data type casting->converting parent reference type to subclass reference type..it posible 
+		//data type casting->converting parent reference type to subclass reference type..
+		//it possible 
 		//in non-primitive inheritance
 		
 		WoodWindow woodwindow=(WoodWindow)window1;
 		woodwindow.autoClose();
 		woodwindow.	semiClose();
 		woodwindow.open();
-		
+		woodwindow.close();		
 	//parent  class to sub  class but sub class to parent we cannot create reference
 		
 	}
