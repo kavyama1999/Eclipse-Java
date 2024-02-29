@@ -4,7 +4,7 @@ public class Movie {
 	
 	
 	
-	public void MovieTickectNo(int ticketNo) throws MovieTicketException 
+	public void movieTickectNo(int ticketNo) throws MovieTicketException 
 	{
 		if(ticketNo > 0 && ticketNo < 5000)
 		{

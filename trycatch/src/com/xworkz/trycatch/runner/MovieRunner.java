@@ -19,7 +19,7 @@ public class MovieRunner {
 		{
 			
 			System.out.println("Before");
-			mv.MovieTickectNo(900);//if we give invalid it will stop the block then it will execute catch block
+			mv.movieTickectNo(900);//if we give invalid it will stop the block then it will execute catch block
 			System.out.println("After");
 		}
 		
