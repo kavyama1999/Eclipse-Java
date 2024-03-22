@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+
+
+<script >
+
+
+function formvalidation()
+
+//submit_button
+{
+	 //var submit=document.getElementById("submit_button");
+
+	var customerId = document.getElementById("id");
+	console.log(customerId);
+	console.log(customerId.value);
+	
+	let submitbutton=document.getElementById("submit_button")
+	submitbutton.disabled=true
+	
+//value
+	if (customerId.value.length == 8) 
+	
+	{
+	  console.log("Valid length");
+
+	  //valid message
+	  var errorid = document.getElementById("errorId");
+	  errorid.innerHTML = "Valid length";
+	  errorid.style.color = "white";
+	  submitbutton.disabled=false
+	  
+	  
+      //.removeAttribute('disabled');
+//return;
+	
+	} else
+	
+	{
+	  console.log("Please enter 8 characters");
+
+	  // Display error message
+	  var errorid = document.getElementById("errorId");
+	  errorid.innerHTML = "Please enter 8 characters";
+	  errorid.style.color = "white";
+      //submit.setAttribute('disabled','');
+	  submitbutton.disabled=true
+
+	   
+	}
+	
+	//here write select vendor
+	
+	var vender = document.getElementById("select");
+	console.log(vender);
+	console.log(vender.value);
+
+	if(vender.value =='') 
+	{
+	    console.log("please select Vender");
+
+	    var error = document.getElementById("vendorerror");
+	    error.innerHTML = "Please select Vender";
+	    error.style.color = "white";
+	    submitbutton.disabled=true
+        //submit.removeAttribute('disabled');
+	    //return;
+	}
+	
+	
+	//Amount
+    var amount = document.getElementById("type");
+	console.log(amount);
+	console.log(amount.value);
+
+	
+	if (amount.value > 10 && amount.value <10000 ) 
+	
+	{
+	  console.log("valid amount ");
+
+	  //valid message
+	  var errorAmount = document.getElementById("erroramount");
+	  errorAmount.innerHTML = "Valid amount";
+	  errorAmount.style.color = "white";
+	  submitbutton.disabled=false
+	  //return;
+	 
+	}
+	else
+	
+	{
+	  console.log("Invalid amount");
+
+	  // Display error message
+	  var errorAmount = document.getElementById("erroramount");
+	  errorAmount.innerHTML = "Invalid amount";
+	  errorAmount.style.color = "white";
+	  submitbutton.disabled=true
+	  
+	    
+	}
+	
+	//ReachargeType
+	
+	console.log(document.recharge.rechargetype)
+		   console.log(document.recharge.rechargetype[0])
+		   console.log(document.recharge.rechargetype[1])
+		   console.log(document.recharge.rechargetype[2])
+		   
+         console.log(document.recharge.rechargetype[0].checked)
+		   console.log(document.recharge.rechargetype[1].checked)
+		   console.log(document.recharge.rechargetype[2].checked)
+		   
+       if(document.recharge.rechargetype[0].checked==false && 
+		   document.recharge.rechargetype[1].checked==false &&
+		    document.recharge.rechargetype[2].checked==false)
+			
+		    {
+		      console.log("Please select Rechargetype ")
+		     var errorrechargetype=document.getElementById("errorrechargetype")
+		     
+		     errorrechargetype.innerHTML="Please select Rechargetype"
+		     errorrechargetype.style.color='white'
+		    }
+	
+	
+	
+	//for accept
+	var accept = document.getElementById("act1");
+	console.log(accept);
+	console.log(accept.value);
+
+	
+	if(!accept.checked) 
+	{
+	    console.log("please select ");
+
+	    var error = document.getElementById("erroraccept");
+	    error.innerHTML = "Please select";
+	    error.style.color = "white";
+	    submitbutton.disabled=true
+	    //return;
+	    
+	}
+	
+
+	
+	//submitButton.disabled = !isValid;
+
+	
+	
+	
+	}
+
+
+
+</script>
+
+
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header" >
+      <a class="navbar-brand" href="index.html">Home</a>
+   </div>
+   </div>
+    </nav>
+    
+   
+     <div class="  container mt-5 mb-5 d-flex justify-content-center "> 
+  <div class="card  p-4  bg-secondary">
+  <div class="card-body">
+  
+
+ 
+  
+
+
+
+
+<form action="tv" method="post"  name="recharge">
+
+<div class="  row mb-3 ">
+<span id="errorId" ></span><br>
+            <label for="id" class="form-label  "><b>Customer Id:</b></label>
+            <input type="text" class="form-control " id="id" name="customer">
+        </div> 
+
+
+
+<div  class=" row mb-3">
+<span id="vendorerror"></span>
+<label for="select" class="form-label"><b>Select Vendor:</b></label>
+   <select class="form-select custom-select-width" id="select" name="vendor" aria-label="Select Color">
+  <option selected value="">select</option>
+  <option value="Recharge Tv">Recharge Tv</option>
+  <option value="Tv Realod">Tv Realod</option>
+  
+ </select><br>
+ 
+ </div>
+ 
+ <div class="  row mb-3 ">
+ <span id="erroramount"></span>
+            <label for="type" class="form-label  "><b>Recharge Amount:</b></label>
+            <input type="text" class="form-control " id="type" name="recharge">
+        </div> 
+ 
+ 
+ 
+ 
+ 
+ <div>
+ <span id="errorrechargetype"></span>
+</div>
+ <b>Recharge Type:</b><div class="form-check">
+ 
+  <input class="form-check-input" type="radio" name="rechargetype" value="Monthly" id="flexRadioDefault1">
+  
+  <label class="form-check-label" for="flexRadioDefault1"> Monthly
+   
+   </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="rechargetype"  value="Topup" id="flexRadioDefault2">
+  <label class="form-check-label" for="flexRadioDefault2"> Topup
+   
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="rechargetype" value="" id="flexRadioDefault2" >
+  <label class="form-check-label" for="flexRadioDefault2">
+    Ott
+  </label>
+</div>
+ 
+ 
+ 
+ <br><div class="list-group">
+ 
+ <span  id="erroraccept"></span>
+  <label  for="act1" class="list-group-item">
+    <input name="accept"  id="act1" class="form-check-input me-1" type="checkbox" value="Accept" >
+    Accept
+  </label>
+  </div>
+ 
+ 
+ 
+
+ 
+
+ 
+  
+<input type="submit" onclick="formvalidation()"  id="submit_button"  value="Submit">
+
+ <a href="./TvRecharge.html" class="ms-5"><input type="button" placeholder="Clear" value="Refresh" ></a>
+
+
+  
+</form>
+</div>
+</div>
+</div>
+
+</body>
+
+
+</html>

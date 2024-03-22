@@ -1,0 +1,130 @@
+PrintWriter writer=resp.getWriter();
+		resp.setContentType("text/html");
+		
+		
+		writer.write("<html>");
+		writer.write("<head>");
+		writer.write("  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" 
+		rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">");
+		writer.write("</head>");
+		writer.write("<nav class=\"navbar navbar-dark bg-info\">");
+		writer.write("<div class=\"container-fluid\">");
+		writer.write("<a class=\"navbar-brand\" href=\"ComputerPart.html\">COMPUTER</a>");
+		writer.write("<a class=\"navbar-brand\" href=\"index.html\" >HOME</a>");
+		writer.write("</div>");
+		writer.write("</nav>");
+		writer.write("<body>");
+//		writer.write("<div>");
+		writer.write("Total Cost computer parts is processing...."+"\n");
+		writer.write("<br>");
+		
+		writer.write("<b>Total Cost:</b>"+"\n"+totalCost);
+	
+		/* writer.write("</div>"); */
+		writer.write("</body>");
+		
+		writer.write("</html>");
+//		writer.write("Brand:"+brand+"\n"+"Model:"+model+"\n"+"Color:"+color+"\n"+"Type:"+type+"\n"+"Ram:"+ram+"\n"+"HardDisk:"+hardDisk+"\n"+"Processor"+processor+"\n"+"Generation:"+generation+"\n"+"MotherBoard:"+motherboard+"\n"+"CacheSize:"+cachesize+"\n"+"Cost:"+cost+"\n"+"Quantity:"+quantity+"\n");
+		
+		
+		
+		writer.write("<html>");  
+//   writer.write("<head>");
+//   writer.write("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">");
+//   
+//     writer.write("</head>");
+//    
+//     
+//     
+//  writer.write("<nav class=\"navbar navbar-dark bg-dark>"); 
+//    writer.write("<div class=\"container-fluid\">");
+//      writer.write("<div class=\"navbar-header\" >");
+//      writer.write(" <a class=\"navbar-brand\" href=\"computerparts.html\">Computer Parts</a>");  
+//    
+//      writer.write("</div>");
+//      writer.write("</div>");
+//      writer.write("</nav>");
+//      
+//      writer.write("<body>");
+//      writer.write("processing....."+"\n");
+//      writer.write("<br>");
+//      writer.write("</body>");
+//      writer.write("</html>");
+
+
+
+
+
+
+
+
+
+var accept = document.getElementById("accept");
+	var errorAccept = document.getElementById("erroraccept");
+
+	if (!accept.checked) {
+	  console.log("Please select");
+
+	  // Display error message
+	  errorAccept.innerHTML = "Please select";
+	  errorAccept.style.color = "red";
+
+
+
+
+
+///////////////////
+var accept = document.getElementById("act");
+	console.log(accept);
+	console.log(accept.value);
+	
+	if(!accept.checked=="")
+ {
+    console.log("please select")
+
+    var error=document.getElementById("erroraccept")
+error.innerHTML="Please select";
+    error.style.color="white"
+
+}
+
+
+
+
+
+var amount = document.getElementById("amount");
+console.log(amount);
+console.log(amount.value);
+
+var amountValue = parseFloat(amount.value); // Convert value to a number
+
+if (amountValue > 10 && amountValue < 10000) {
+  console.log("Valid amount ");
+
+  // Clear any previous error message
+  var errorAmount = document.getElementById("erroramount");
+  errorAmount.innerHTML = "Valid amount";
+  errorAmount.style.color = "green";
+} else {
+  console.log("Invalid amount");
+
+  // Display error message
+  var errorAmount = document.getElementById("erroramount");
+  errorAmount.innerHTML = "Invalid amount";
+  errorAmount.style.color = "red";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

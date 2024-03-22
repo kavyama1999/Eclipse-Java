@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+
+<script>
+
+
+
+function companyform()
+
+//submit_button
+{
+	 //var submit=document.getElementById("submit_button");
+
+	var firstName = document.getElementById("fname");
+	console.log(firstName);
+	console.log(firstName.value);
+	
+	let submitbutton=document.getElementById("apply")
+	submitbutton.disabled=true
+	
+//value
+	if (firstName.value.length> 5  ) 
+	
+	{
+	  console.log("Valid length");
+
+	  //valid message
+	  var fnameerror = document.getElementById("errorname");
+	  fnameerror.innerHTML = "Enter valid FirstName";
+	  fnameerror.style.color = "white";
+	  submitbutton.disabled=false
+	  
+	  
+ 
+	
+	} else
+	
+	{
+	  console.log("Please enter 8 characters");
+
+	  // Display error message
+	  var fnameerror = document.getElementById("errorname");
+	  fnameerror.innerHTML = "Please enter FirstName";
+	  fnameerror.style.color = "white";
+    //submit.setAttribute('disabled','');
+	  submitbutton.disabled=true
+
+	   
+	}
+	
+	
+	//lastname
+	
+	
+	var lastName = document.getElementById("lname");
+	console.log(lastName);
+	console.log(lastName.value);
+	
+	
+	if (lastName.value.length> 1  ) 
+		
+	{
+	  console.log("Valid length");
+
+	  //valid message
+	  var lnameerror = document.getElementById("errorlname");
+	  lnameerror.innerHTML = "Enter valid lastname";
+	  lnameerror.style.color = "white";
+	  submitbutton.disabled=false
+	  
+	  
+ 
+	
+	} else
+	
+	{
+	  console.log("Please valid character");
+
+	  // Display error message
+	  var lnameerror = document.getElementById("errorlname");
+	  lnameerror.innerHTML = "Please enter valid lastName";
+	  lnameerror.style.color = "white";
+    //submit.setAttribute('disabled','');
+	  submitbutton.disabled=true
+
+	   
+	}
+	
+	//dateofbirth.............
+	
+	var dateofbirth = document.getElementById("dates");
+	console.log(dateofbirth);
+	console.log(dateofbirth.value);
+
+	if(dateofbirth.value =='') 
+	{
+	    console.log("please enter dataofbirth");
+
+	    var error = document.getElementById("errordate");
+	    error.innerHTML = "Please enter dataofbirth ";
+	    error.style.color = "white";
+	    submitbutton.disabled=true
+        //submit.removeAttribute('disabled');
+	    //return;
+	}
+	
+	//......gender..........
+	
+	
+	console.log(document.register.gender)
+	   console.log(document.register.gender[0])
+	   console.log(document.register.gender[1])
+	   console.log(document.register.gender[2])
+	   
+  console.log(document.register.gender[0].checked)
+	   console.log(document.register.gender[1].checked)
+	   console.log(document.register.gender[2].checked)
+	   
+if(document.register.gender[0].checked==false && 
+	   document.register.gender[1].checked==false &&
+	    document.register.gender[2].checked==false)
+		
+	    {
+	      console.log("Please select gender ")
+	     var errorrechargetype=document.getElementById("errorregender")
+	     
+	     errorrechargetype.innerHTML="Please select gender"
+	     errorrechargetype.style.color='white'
+	    }
+
+	//positin..........
+	
+	
+	var positionavailable = document.getElementById("available");
+	console.log(positionavailable);
+	console.log(positionavailable.value);
+	
+	if(positionavailable.value =='') 
+	{
+	    console.log("please select Vender");
+
+	    var positionerror = document.getElementById("positionerror");
+	    positionerror.innerHTML = "Please select Vender";
+	    positionerror.style.color = "white";
+	    submitbutton.disabled=true
+        //submit.removeAttribute('disabled');
+	    //return;
+	}
+	
+	
+	
+	//programlanguage
+	
+	var programLanguage = document.getElementById("available");
+	console.log(programLanguage);
+	console.log(programLanguage.value);
+	
+	if(programLanguage.value =='') 
+	{
+	    console.log("Please Programming language");
+
+	    var positionerror = document.getElementById("programerror");
+	    positionerror.innerHTML = "Please select Programming language";
+	    positionerror.style.color = "white";
+	    submitbutton.disabled=true
+        //submit.removeAttribute('disabled');
+	    //return;
+	}
+	
+	
+	
+	//confirm
+	
+	var confirm = document.getElementById("cmf");
+	console.log(confirm);
+	console.log(confirm.value);
+
+	
+	if(!confirm.checked) 
+	{
+	    console.log("please select ");
+
+	    var confirmerror = document.getElementById("confirmed");
+	    confirmerror.innerHTML = "Please select";
+	    confirmerror.style.color = "white";
+	    submitbutton.disabled=true
+	    //return;
+	    
+	}
+	
+	
+}
+
+</script>
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header" >
+      <a class="navbar-brand" href="index.html">Home</a>
+   </div>
+   </div>
+    </nav>
+    
+   
+     <div class="  container mt-4 mb-5 d-flex justify-content-center "> 
+  <div class="card  p-4  bg-secondary">
+  <div class="card-body">
+  
+
+<form action="job" method="post"   name="register">
+
+<h2> &nbsp;&nbsp;&nbsp;<b>Job Register Form</b></h2>
+
+
+
+<div class="  row mb-3 ">
+<span id="errorname" ></span><br>
+            <label for="fname" class="form-label  "><b>First Name:</b></label>
+            <input type="text" class="form-control " id="fname" name="firstname" required>
+        </div> 
+
+
+<div class="  row mb-3 ">
+<span id="errorlname" ></span><br>
+            <label for="lname" class="form-label  "><b>Last Name:</b></label>
+            <input type="text" class="form-control " id="lname" name="lastname" required>
+        </div> 
+
+
+
+<div class=" row mb-3 ">
+<span id="errordate" ></span><br>
+            <label for="dates" class="form-label  "><b>Date of birth:</b></label>
+            <input type="date" class="form-control " id="dates" name="dataofbirth" required>
+        </div> 
+
+
+
+
+<div>
+ <span id="errorregender"></span>
+</div>
+<b>Gender:</b><div class="container">
+  
+  <div class="row mb-3">
+    <div class="col-auto">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender"   value="Male" id="flexRadioDefault1" required>
+        <label class="form-check-label" for="flexRadioDefault1">Male</label>
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender"   value="Female"  id="flexRadioDefault2" required>
+        <label class="form-check-label" for="flexRadioDefault2">Female</label>
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender"  value="Others" id="flexRadioDefault3" required>
+        <label class="form-check-label" for="flexRadioDefault3">Others</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=" row mb-3">
+<span id="positionerror"></span>
+ <label for="available" class="form-label"><b>Position Available:</b></label>
+            <select class="form-select custom-select-width" id="available" name="position" aria-label="Select Color" required>
+  <option selected value="">select</option>
+  <option value="Java Developer">Java Developer</option>
+  <option value="Senior Java Developer">Senior Java Developer</option>
+   <option value="Junior Java Developer">Junior Java Developer</option>
+ 
+  </select>
+  </div>
+
+
+<div class=" row mb-3">
+<span id="programerror"></span>
+ <label for="available" class="form-label"><b>Programming Language:</b></label>
+            <select class="form-select custom-select-width" id="available" name="program" aria-label="Select Color" required>
+  <option selected value="">select</option>
+  <option value="java">Java</option>
+  <option value="java Script">Java Script</option>
+   <option value="my sql">MY SQL</option>
+    <option value="spring boot">Spring Boot</option>
+ 
+  </select>
+  </div>
+
+
+
+<br><div class="list-group">
+ 
+ <span  id="confirmed"></span>
+  <label  for="cmf" class="list-group-item">
+    <input name="confirm"  id="cmf" class="form-check-input me-1" type="checkbox" value="Confirmed" >
+    Confirm
+  </label>
+  </div>
+ 
+ 
+
+
+<input type="submit" onclick="companyform()"  id="apply" type="Apply">
+ <a href="./jobform.html" class="ms-5"><input type="button" placeholder="Clear" value="Refresh" ></a>
+
+
+
+</form>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+</body>
+</html>
