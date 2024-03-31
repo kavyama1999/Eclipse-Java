@@ -11,203 +11,223 @@
 
 <script>
 
+let fieldsChecks=
+	{
+		"fname":false,	
+		"lname":false,
+		"dates":false,
+		"available":false,
+		"availablelang":false,
+		"cmf":false,
+		"gender": false 
+	}
 
 
-function companyform()
 
-//submit_button
+
+function validateAndEnableSubmit()
 {
-	 //var submit=document.getElementById("submit_button");
+let flag=false;
 
-	var firstName = document.getElementById("fname");
-	console.log(firstName);
-	console.log(firstName.value);
-	
-	let submitbutton=document.getElementById("apply")
-	submitbutton.disabled=true
-	
-//value
-	if (firstName.value.length> 5  ) 
-	
+for(let[key,value] of Object.entries(fieldsChecks)) 
 	{
-	  console.log("Valid length");
-
-	  //valid message
-	  var fnameerror = document.getElementById("errorname");
-	  fnameerror.innerHTML = "Enter valid FirstName";
-	  fnameerror.style.color = "white";
-	  submitbutton.disabled=false
-	  
-	  
- 
 	
-	} else
 	
-	{
-	  console.log("Please enter 8 characters");
-
-	  // Display error message
-	  var fnameerror = document.getElementById("errorname");
-	  fnameerror.innerHTML = "Please enter FirstName";
-	  fnameerror.style.color = "white";
-    //submit.setAttribute('disabled','');
-	  submitbutton.disabled=true
-
-	   
+	if(value === false){
+        flag = true;
+        break;
+    }
+	
 	}
-	
-	
-	//lastname
-	
-	
-	var lastName = document.getElementById("lname");
-	console.log(lastName);
-	console.log(lastName.value);
-	
-	
-	if (lastName.value.length> 1  ) 
-		
-	{
-	  console.log("Valid length");
 
-	  //valid message
-	  var lnameerror = document.getElementById("errorlname");
-	  lnameerror.innerHTML = "Enter valid lastname";
-	  lnameerror.style.color = "white";
-	  submitbutton.disabled=false
-	  
-	  
- 
-	
-	} else
-	
-	{
-	  console.log("Please valid character");
+if(!flag){
+    document.getElementById("submit").removeAttribute("disabled");
+}else{
+    document.getElementById("submit").setAttribute("disabled","");
+}
+}
 
-	  // Display error message
-	  var lnameerror = document.getElementById("errorlname");
-	  lnameerror.innerHTML = "Please enter valid lastName";
-	  lnameerror.style.color = "white";
-    //submit.setAttribute('disabled','');
-	  submitbutton.disabled=true
+//filed name here
 
-	   
-	}
-	
-	//dateofbirth.............
-	
-	var dateofbirth = document.getElementById("dates");
-	console.log(dateofbirth);
-	console.log(dateofbirth.value);
+function firstnameValidation() 
+{
 
-	if(dateofbirth.value =='') 
-	{
-	    console.log("please enter dataofbirth");
+	let element = document.getElementById("fname");
+    let error = document.getElementById("errorname");
 
-	    var error = document.getElementById("errordate");
-	    error.innerHTML = "Please enter dataofbirth ";
-	    error.style.color = "white";
-	    submitbutton.disabled=true
-        //submit.removeAttribute('disabled');
-	    //return;
-	}
-	
-	//......gender..........
-	
-	
-	console.log(document.register.gender)
-	   console.log(document.register.gender[0])
-	   console.log(document.register.gender[1])
-	   console.log(document.register.gender[2])
-	   
-  console.log(document.register.gender[0].checked)
-	   console.log(document.register.gender[1].checked)
-	   console.log(document.register.gender[2].checked)
-	   
-if(document.register.gender[0].checked==false && 
-	   document.register.gender[1].checked==false &&
-	    document.register.gender[2].checked==false)
-		
-	    {
-	      console.log("Please select gender ")
-	     var errorrechargetype=document.getElementById("errorregender")
-	     
-	     errorrechargetype.innerHTML="Please select gender"
-	     errorrechargetype.style.color='white'
-	    }
+    if(element.value.trim().length >= 3){
+        error.innerHTML = "";
+        fieldsChecks["fname"] = true;
+    }else{
+        error.innerHTML = "Invalid first name. first  name should be greterthan 3 letters";
+        error.style.color="red"
+        fieldsChecks["fname"] = false;
 
-	//positin..........
-	
-	
-	var positionavailable = document.getElementById("available");
-	console.log(positionavailable);
-	console.log(positionavailable.value);
-	
-	if(positionavailable.value =='') 
-	{
-	    console.log("please select Vender");
-
-	    var positionerror = document.getElementById("positionerror");
-	    positionerror.innerHTML = "Please select Vender";
-	    positionerror.style.color = "white";
-	    submitbutton.disabled=true
-        //submit.removeAttribute('disabled');
-	    //return;
-	}
-	
-	
-	
-	//programlanguage
-	
-	var programLanguage = document.getElementById("available");
-	console.log(programLanguage);
-	console.log(programLanguage.value);
-	
-	if(programLanguage.value =='') 
-	{
-	    console.log("Please Programming language");
-
-	    var positionerror = document.getElementById("programerror");
-	    positionerror.innerHTML = "Please select Programming language";
-	    positionerror.style.color = "white";
-	    submitbutton.disabled=true
-        //submit.removeAttribute('disabled');
-	    //return;
-	}
-	
-	
-	
-	//confirm
-	
-	var confirm = document.getElementById("cmf");
-	console.log(confirm);
-	console.log(confirm.value);
-
-	
-	if(!confirm.checked) 
-	{
-	    console.log("please select ");
-
-	    var confirmerror = document.getElementById("confirmed");
-	    confirmerror.innerHTML = "Please select";
-	    confirmerror.style.color = "white";
-	    submitbutton.disabled=true
-	    //return;
-	    
-	}
-	
+    }
+    validateAndEnableSubmit();
 	
 }
+
+function lastnameValidation()
+
+{
+	
+	
+
+	let element = document.getElementById("lname");
+    let error = document.getElementById("errorlname");
+
+    if(element.value.trim().length >= 2)
+    {
+        error.innerHTML = "";
+        fieldsChecks["lname"] = true;
+    }else
+    {
+        error.innerHTML = "Invalid last name. last  name should be greterthan 2 letters";
+        error.style.color="red"
+        fieldsChecks["lname"] = false;
+
+    }
+    validateAndEnableSubmit();
+	
+	
+	}
+
+function  dateofbirthValidation() 
+
+{
+
+	let element = document.getElementById("dates");
+    let error = document.getElementById("errordate");
+
+    if(element.value.length != '0')
+    {
+        error.innerHTML = "";
+        fieldsChecks["dates"] = true;
+    }else
+    {
+        error.innerHTML = "Please enter date of birth";
+        error.style.color="red"
+        fieldsChecks["dates"] = false;
+
+    }
+    validateAndEnableSubmit();	
+	
+}
+
+//......gender..........
+	
+	
+	function genderValidation() {
+    let genders = document.getElementsByName("gender");
+    let error = document.getElementById("errorregender");
+
+    let selected = false;
+    for (let i = 0; i < genders.length; i++) {
+        if (genders[i].checked) {
+            selected = true;
+            break;
+        }
+    }
+
+    if (selected) {
+        error.innerHTML = "";
+        fieldsChecks["gender"] = true;
+    } else {
+        error.innerHTML = "Please select a gender";
+        error.style.color = "red";
+        fieldsChecks["gender"] = false;
+    }
+    validateAndEnableSubmit();
+}
+
+	
+	//.......position.........
+	function  positionValidation()
+{
+	
+	
+	
+		let element = document.getElementById("available");
+	    let error = document.getElementById("positionerror");
+
+	    if(element.value .length != "0")
+	    {
+	        error.innerHTML = "";
+	        fieldsChecks["available"] = true;
+	        //error=available; 
+	    }else
+	    {
+	        error.innerHTML = "Please select position";
+	        error.style.color="red"
+	        fieldsChecks["available"] = false;
+
+	    }
+	    validateAndEnableSubmit();
+	
+	
+	
+	}
+	
+	
+//programlanguage
+	
+	 function programValidation()
+	 {
+	
+		 let element = document.getElementById("availablelang");
+		    let error = document.getElementById("programerror");
+
+		    if(element.value.length != '0')
+		    {
+		        error.innerHTML = "";
+		        fieldsChecks["availablelang"] = true;
+		    }else
+		    {
+		        error.innerHTML = "Please select programming language";
+		        error.style.color="red"
+		        fieldsChecks["availablelang"] = false;
+
+		    }
+		    validateAndEnableSubmit();
+	
+	}
+		
+	//confirm
+	
+	
+	 function confirmValidation()
+	{
+		
+		 let element = document.getElementById("cmf");
+		    let error = document.getElementById("errorconfirmed");
+
+		    if(element.checked)
+		    {
+		        error.innerHTML = "";
+		        fieldsChecks["cmf"] = true;
+		    }else
+		    {
+		        error.innerHTML = "Please confirm";
+		        error.style.color="red"
+		        fieldsChecks["cmf"] = false;
+
+		    }
+		    validateAndEnableSubmit();
+		    console.log(element.value);
+		    genderValidation();
+		
+         }
+	
+	
+	
+	
+
 
 </script>
 
 </head>
 <body>
-
-
-
-
-
 
 
 
@@ -234,14 +254,14 @@ if(document.register.gender[0].checked==false &&
 <div class="  row mb-3 ">
 <span id="errorname" ></span><br>
             <label for="fname" class="form-label  "><b>First Name:</b></label>
-            <input type="text" class="form-control " id="fname" name="firstname" required>
+            <input type="text" class="form-control " id="fname" name="firstname" onblur="firstnameValidation()">
         </div> 
 
 
 <div class="  row mb-3 ">
 <span id="errorlname" ></span><br>
             <label for="lname" class="form-label  "><b>Last Name:</b></label>
-            <input type="text" class="form-control " id="lname" name="lastname" required>
+            <input type="text" class="form-control " id="lname" name="lastname"  onblur="lastnameValidation()">
         </div> 
 
 
@@ -249,7 +269,7 @@ if(document.register.gender[0].checked==false &&
 <div class=" row mb-3 ">
 <span id="errordate" ></span><br>
             <label for="dates" class="form-label  "><b>Date of birth:</b></label>
-            <input type="date" class="form-control " id="dates" name="dataofbirth" required>
+            <input type="date" class="form-control " id="dates"  onblur="dateofbirthValidation()"  name="dataofbirth" >
         </div> 
 
 
@@ -263,19 +283,19 @@ if(document.register.gender[0].checked==false &&
   <div class="row mb-3">
     <div class="col-auto">
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender"   value="Male" id="flexRadioDefault1" required>
+        <input class="form-check-input" type="radio" name="gender"   value="Male" id="flexRadioDefault1"  onclick="genderValidation()">
         <label class="form-check-label" for="flexRadioDefault1">Male</label>
       </div>
     </div>
     <div class="col-auto">
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender"   value="Female"  id="flexRadioDefault2" required>
+        <input class="form-check-input" type="radio" name="gender"   value="Female"  id="flexRadioDefault2"  onclick="genderValidation()" >
         <label class="form-check-label" for="flexRadioDefault2">Female</label>
       </div>
     </div>
     <div class="col-auto">
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender"  value="Others" id="flexRadioDefault3" required>
+        <input class="form-check-input" type="radio" name="gender"  value="Others" id="flexRadioDefault3"  onclick="genderValidation() " >
         <label class="form-check-label" for="flexRadioDefault3">Others</label>
       </div>
     </div>
@@ -285,7 +305,7 @@ if(document.register.gender[0].checked==false &&
 <div class=" row mb-3">
 <span id="positionerror"></span>
  <label for="available" class="form-label"><b>Position Available:</b></label>
-            <select class="form-select custom-select-width" id="available" name="position" aria-label="Select Color" required>
+            <select class="form-select custom-select-width" id="available"    onblur="positionValidation()"  name="position" aria-label="Select Color" >
   <option selected value="">select</option>
   <option value="Java Developer">Java Developer</option>
   <option value="Senior Java Developer">Senior Java Developer</option>
@@ -297,8 +317,8 @@ if(document.register.gender[0].checked==false &&
 
 <div class=" row mb-3">
 <span id="programerror"></span>
- <label for="available" class="form-label"><b>Programming Language:</b></label>
-            <select class="form-select custom-select-width" id="available" name="program" aria-label="Select Color" required>
+ <label for="availablelang" class="form-label"><b>Programming Language:</b></label>
+            <select class="form-select custom-select-width" id="availablelang"  onblur="programValidation()"  name="program" aria-label="Select Color" >
   <option selected value="">select</option>
   <option value="java">Java</option>
   <option value="java Script">Java Script</option>
@@ -312,9 +332,9 @@ if(document.register.gender[0].checked==false &&
 
 <br><div class="list-group">
  
- <span  id="confirmed"></span>
+ <span  id="errorconfirmed"></span>
   <label  for="cmf" class="list-group-item">
-    <input name="confirm"  id="cmf" class="form-check-input me-1" type="checkbox" value="Confirmed" >
+    <input name="confirm"  id="cmf"    onchange="confirmValidation()"  class="form-check-input me-1" type="checkbox"  value="confirm"  >
     Confirm
   </label>
   </div>
@@ -322,10 +342,20 @@ if(document.register.gender[0].checked==false &&
  
 
 
-<input type="submit" onclick="companyform()"  id="apply" type="Apply">
+<!-- --<input type="submit" onclick="companyform()"  id="apply" type="Apply">
  <a href="./jobform.html" class="ms-5"><input type="button" placeholder="Clear" value="Refresh" ></a>
 
+<input type="submit"   id="submit" type="Apply">
 
+
+          <div>
+			<button type="submit" class="text-primary" id="submit" disabled>Apply</button>
+					</div>-->
+					
+					
+					
+		<input type="submit"   id="submit" type="Apply" disabled>
+					
 
 </form>
 
