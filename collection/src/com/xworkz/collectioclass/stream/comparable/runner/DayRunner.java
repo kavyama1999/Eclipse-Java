@@ -37,6 +37,7 @@ public class DayRunner {
 		dayCollection
 		.stream()
 		.sorted()
+		.collect(null)
 		//.collect(Collectors.toList())
 .forEach(day->System.out.println(day));
 	}
